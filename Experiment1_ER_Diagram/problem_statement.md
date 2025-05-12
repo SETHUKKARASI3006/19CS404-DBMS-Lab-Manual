@@ -48,25 +48,39 @@ Design a database for patient management, appointments, medical records, and bil
 # ER Diagram Submission - Student Name
 
 ## Scenario Chosen:
-University / Hospital (choose one)
+University
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+![er_diagram](https://github.com/user-attachments/assets/7c47b51d-a7b5-4c5b-8273-ba11ccdf46fe)
+
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
+- College: (College Code, City, Head)
+- Department: (Scope, Block, Maximum Admission)
+- Staff: (Staff ID, Address, Salary)
+- Student: (Register Number, Name, Mobile Number)
+- Parent: (Contact Number, Relationship, Name)
+- Course: (Code, Maximum Capacity, Credits)
+
 ...
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
+- Works in a (Staff → Department): One-to-Many relationship; each staff member belongs to a single department, but a department can have multiple staff members.
+- Belongs (Department → College): Many-to-One relationship; each department belongs to a college.
+- Choose (Student → Course): Many-to-Many relationship; students can enroll in multiple courses, and courses have multiple students.
+- Handle (Staff → Course): Many-to-Many relationship; instructors handle multiple courses.
+- Collect fee from (University → Parent): Indicates student fees collected through parent associations.
 ...
 
-## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+## Extension (Prerequisite):
+- Requires (Course → Course) with One-to-Many mapping (a course can have multiple prerequisites).
+- An additional table Prerequisite can store (Course ID, Prerequisite ID).
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+- Departments are grouped under Colleges to maintain hierarchy.
+- Course prerequisites enable structured learning paths.
+- Enrollments link students to courses with timestamps.
+- Cardinality constraints prevent inconsistencies (e.g., a course cannot have infinite capacity).
 
 ## RESULT
+The concepts of ER modeling is applied by creating an ER diagram for real-world application.
